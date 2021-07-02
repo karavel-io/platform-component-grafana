@@ -1,0 +1,13 @@
+publicURL:
+
+secret:
+
+operator:
+  image: quay.io/integreatly/grafana-operator
+  tag: v3.9.0
+
+dex:
+  enable: false
+  name: dex
+  namespace: dex
+  issuer:
