@@ -38,6 +38,7 @@ spec:
       {{- include "grafana.labels" . | nindent 6 }}
   client:
     preferService: true
+    timeout: 10000
   jsonnet:
     libraryLabelSelector:
       matchLabels:

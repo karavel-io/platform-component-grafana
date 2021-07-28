@@ -3,8 +3,8 @@ publicURL:
 secret:
 
 operator:
-  image: quay.io/integreatly/grafana-operator
-  tag: v3.9.0
+  image: quay.io/grafana-operator/grafana-operator
+  tag: v3.10.3
 
 dex:
   enable: false
