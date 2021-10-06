@@ -1,4 +1,4 @@
-site_name: Grafana Component
+site_name: components/grafana
 site_url: https://docs.karavel.io/components/grafana
 repo_name: projectkaravel/platform-component-grafana
 repo_url: https://github.com/projectkaravel/platform-component-grafana
@@ -24,4 +24,3 @@ nav:
   - Overview: index.md
   - 0.1.0:
     - 0.1.0/configuration.md
-  - Back to platform docs: https://docs.karavel.io/
