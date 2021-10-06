@@ -1,40 +1,40 @@
 apiVersion: integreatly.org/v1alpha1
 kind: Grafana
 metadata:
-  name: grafana-operated
+  name: {{ include "grafana.name" . }}-operated
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: grafana-operated
+    app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
     {{- include "grafana.labels" . | nindent 4 }}
 spec:
   deployment:
     labels:
-      app.kubernetes.io/name: grafana-operated
+      app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
       {{- include "grafana.labels" . | nindent 6 }}
     skipCreateAdminAccount: false
     envFrom:
       {{ if .Values.secret }}
       - secretRef:
-          name: cluster-{{ include "grafana.name" . }}-secrets
+          name: {{ include "grafana.name" . }}-secrets
       {{- end }}
       {{- if .Values.dex.enable }}
       - secretRef:
-          name: dex-grafana-credentials
+          name: dex-{{ include "grafana.name" . }}-credentials
       - configMapRef:
           name: {{ include "grafana.name" . }}-dex-config
       {{- end }}
   service:
     labels:
-      app.kubernetes.io/name: grafana-operated
+      app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
       {{- include "grafana.labels" . | nindent 6 }}
   ingress:
     enabled: true
     {{- $url := urlParse (required "parameter 'publicURL' is required for generating Grafana instance" .Values.publicURL) }}
     hostname: {{ $url.host }}
     tlsEnabled: true
-    tlsSecretName: grafana-operated-tls
+    tlsSecretName: {{ include "grafana.name" . }}-operated-tls
     labels:
-      app.kubernetes.io/name: grafana-operated
+      app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
       {{- include "grafana.labels" . | nindent 6 }}
   client:
     preferService: true
@@ -42,7 +42,7 @@ spec:
   jsonnet:
     libraryLabelSelector:
       matchLabels:
-        grafana.integreatly.org/instance: grafana-operated
+        grafana.integreatly.org/instance: {{ include "grafana.name" . }}-operated
   config:
     server:
       root_url: {{ .Values.publicURL }}
@@ -60,4 +60,4 @@ spec:
       viewers_can_edit: true
   dashboardLabelSelector:
     - matchExpressions:
-        - {key: grafana.integreatly.org/instance, operator: In, values: [grafana-operated]}
+        - {key: grafana.integreatly.org/instance, operator: In, values: [{{ include "grafana.name" . }}-operated]}

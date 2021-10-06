@@ -1,10 +1,18 @@
 publicURL:
 
 secret:
+  store:
+    name: default
+    kind: ClusterSecretStore
+  key:
 
 operator:
   image: quay.io/grafana-operator/grafana-operator
-  tag: v3.10.3
+  tag: v3.10.4
+
+grafana:
+  image: docker.io/grafana/grafana
+  tag:
 
 dex:
   enable: false
