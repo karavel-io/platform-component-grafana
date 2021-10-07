@@ -8,6 +8,7 @@ metadata:
     {{- include "grafana.labels" . | nindent 4 }}
 spec:
   deployment:
+    replicas: 1
     labels:
       app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
       {{- include "grafana.labels" . | nindent 6 }}
@@ -23,6 +24,7 @@ spec:
       - configMapRef:
           name: {{ include "grafana.name" . }}-dex-config
       {{- end }}
+    terminationGracePeriodSeconds: 60
   service:
     labels:
       app.kubernetes.io/name: {{ include "grafana.name" . }}-operated
