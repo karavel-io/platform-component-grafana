@@ -3,7 +3,7 @@ name: grafana
 description: Grafana component for Karavel
 type: application
 version: 0.1.0-SNAPSHOT
-appVersion: 8.1.7
+appVersion: 8.2.0
 maintainers:
   - name: MatteoJoliveau
     email: matteo.joliveau@mikamai.com
