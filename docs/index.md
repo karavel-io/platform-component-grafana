@@ -12,4 +12,4 @@ Grafana allows you to query, visualize, alert on and understand your metrics no 
 
 The Grafana Component is licensed under the [Apache 2.0 license](LICENSE).
 
-The Karavel Container Platform is licensed under the [Apache 2.0 license](https://github.com/projectkaravel/platform/blob/main/LICENSE).
+The Karavel Container Platform is licensed under the [Apache 2.0 license](https://github.com/karavel-io/platform/blob/main/LICENSE).
