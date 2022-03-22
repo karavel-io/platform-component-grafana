@@ -2,7 +2,7 @@ apiVersion: v2
 name: grafana
 description: Grafana component for Karavel
 type: application
-version: 0.1.0-SNAPSHOT
+version: 1.0.0
 appVersion: 8.3.3
 maintainers:
   - name: MatteoJoliveau
