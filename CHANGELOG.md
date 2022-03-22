@@ -11,5 +11,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release
 
-[unreleased]: https://github.com/karavel-io/platform-component-argocd/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/karavel-io/platform-component-argocd/releases/tag/1.0.0
+[unreleased]: https://github.com/karavel-io/platform-component-grafana/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/karavel-io/platform-component-grafana/releases/tag/1.0.0
