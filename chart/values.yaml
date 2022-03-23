@@ -8,7 +8,7 @@ secret:
 
 operator:
   image: quay.io/grafana-operator/grafana-operator
-  tag: v4.1.1
+  tag: v4.2.0
 
 grafana:
   image: docker.io/grafana/grafana
