@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: grafana-operator
+  name: {{ include "grafana.name" . }}-operator
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: grafana-operator
+    app.kubernetes.io/name: {{ include "grafana.name" . }}-operator
     {{- include "grafana.labels" . | nindent 4 }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: grafana-operator
+  name: {{ include "grafana.name" . }}-operator
   labels:
-    app.kubernetes.io/name: grafana-operator
+    app.kubernetes.io/name: {{ include "grafana.name" . }}-operator
     {{- include "grafana.labels" . | nindent 4 }}
 rules:
 - apiGroups:
@@ -160,17 +160,17 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: grafana-operator
+  name: {{ include "grafana.name" . }}-operator
   labels:
-    app.kubernetes.io/name: grafana-operator
+    app.kubernetes.io/name: {{ include "grafana.name" . }}-operator
     {{- include "grafana.labels" . | nindent 4 }}
 roleRef:
-  name: grafana-operator
+  name: {{ include "grafana.name" . }}-operator
   kind: ClusterRole
   apiGroup: rbac.authorization.k8s.io
 subjects:
   - kind: ServiceAccount
-    name: grafana-operator
+    name: {{ include "grafana.name" . }}-operator
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -222,5 +222,5 @@ roleRef:
   name: leader-election-role
 subjects:
 - kind: ServiceAccount
-  name: grafana-operator
+  name: {{ include "grafana.name" . }}-operator
   namespace: {{ .Release.Namespace }}
