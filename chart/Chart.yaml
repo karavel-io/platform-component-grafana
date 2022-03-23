@@ -16,3 +16,4 @@ sources:
 annotations:
   karavel.io/dependencies: cert-manager, external-secrets
   dex.enable: dex
+  nginx.enable: ingress-nginx

@@ -31,6 +31,9 @@ spec:
       {{- include "grafana.labels" . | nindent 6 }}
   ingress:
     enabled: true
+    {{- if .Values.nginx.enable }}
+    ingressClassName: nginx
+    {{- end }}
     {{- $url := urlParse (required "parameter 'publicURL' is required for generating Grafana instance" .Values.publicURL) }}
     hostname: {{ $url.host }}
     path: /

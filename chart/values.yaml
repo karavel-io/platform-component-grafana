@@ -19,3 +19,6 @@ dex:
   name: dex
   namespace: dex
   issuer:
+
+nginx:
+  enable: false
