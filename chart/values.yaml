@@ -11,7 +11,7 @@ operator:
   tag: v4.2.0
 
 grafana:
-  image: docker.io/grafana/grafana
+  image: quay.io/karavel/grafana
   tag:
 
 dex:
